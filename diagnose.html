@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Diagnosis - Kisan Mitra</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo"> Kisan Mitra</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rent.html">Rent</a></li>
+                <li><a href="diagnose.html" class="active">Diagnose</a></li>
+                <li><a href="sell.html">Sell</a></li>
+                <li><a href="recommend.html">Recommend</a></li>
+                <li><a href="#">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page-main">
+        <div class="container grid-container">
+            <div class="card">
+                <h2>Take or Upload Photo</h2>
+                <div class="upload-area" id="upload-area">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#cccccc" viewBox="0 0 256 256"><path d="M208,56H180.28L166.65,35.54A8,8,0,0,0,160,32H96a8,8,0,0,0-6.65,3.54L75.72,56H48A24,24,0,0,0,24,80V192a24,24,0,0,0,24,24H208a24,24,0,0,0,24-24V80A24,24,0,0,0,208,56Zm16,136a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V80A16,16,0,0,1,48,64H80a8,8,0,0,0,6.66-3.54L100.28,40h55.44l13.62,20.46A8,8,0,0,0,176,64h32a16,16,0,0,1,16,16ZM128,88a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,88Zm0,72a28,28,0,1,1,28-28A28,28,0,0,1,128,160Z"></path></svg>
+                    <p>Click to start camera or upload image</p>
+                    <input type="file" id="file-input" hidden accept="image/*">
+                </div>
+                 <div class="upload-buttons">
+                    <button class="btn btn-secondary" id="camera-btn"> Start Camera</button>
+                    <button class="btn btn-secondary" id="upload-btn"> Upload</button>
+                </div>
+                
+             
+
+                <label for="language">Preferred Language for Results</label>
+                <select id="language" name="language">
+                    <option value="english">English</option>
+                    <option value="hindi">Hindi</option>
+                    <option value="punjabi">Punjabi</option>
+                    <option value="bhojpuri">Bhojpuri</option>
+                    <option value="marathi">Marathi</option>
+                    <option value="tamil">Tamil</option>
+                </select>
+                <button class="btn btn-primary full-width" id="analyze-btn" disabled> Analyze with AI</button>
+            </div>
+            
+            <div class="card">
+                <h2>Diagnosis Results</h2>
+                <div class="results-area" id="results-area">
+                    <div id="summary-area">
+                        <p>Upload an image and enter your API key to get started.</p>
+                    </div>
+                    <div id="follow-up-buttons" class="hidden"></div>
+                    <div id="details-area"></div>
+                </div>
+                <form id="chat-input-form" class="hidden">
+                    <input type="text" id="chat-input" placeholder="Ask a follow-up question..." required>
+                    <button type="button" id="mic-btn" title="Use Voice">🎤</button>
+                    <button type="submit" title="Send">➤</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

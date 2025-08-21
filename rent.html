@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2P Rental Hub - Kisan Mitra</title>
+    <link rel="stylesheet" href="/css/rent.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-cream">
+        <header>
+        <nav class="container">
+            <a href="index.html" class="logo"> Kisan Mitra</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Rent</a></li>
+                <li><a href="diagnose.html">Diagnose</a></li>
+                <li><a href="sell.html">Sell</a></li>
+                <li><a href="recommend.html" class="active">Recommend</a></li>
+                <li><a href="community.html">Community</a></li>
+            </ul>
+        </nav>
+        </header>
+    <div class="min-h-screen py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <h1 class="font-poppins font-bold text-4xl text-forest-green mb-4" style="color:#3e8e41;">
+                    Peer-to-Peer Rental Hub
+                </h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" style="color: white;">
+                    List your unused farm equipment or find what you need from fellow farmers.
+                </p>
+                <p class="text-sm text-gray-500 mt-4">Your User ID: <span id="userIdDisplay" class="font-mono bg-gray-100 p-1 rounded">Loading...</span></p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex justify-center gap-4 mb-12">
+                <button id="listItemBtn" class="bg-leaf-green text-white px-8 py-3 text-lg hover:bg-forest-green shadow-md rounded-lg">
+                    List an Item
+                </button>
+            </div>
+
+            <!-- Item Listings Section -->
+            <h2 class="font-poppins font-bold text-3xl text-forest-green mb-8 text-center">Available Items</h2>
+            
+            <!-- Loading and No Listings messages moved outside listingsContainer -->
+            <div id="loadingListings" class="col-span-full text-center py-12 hidden">
+                <div class="loading-spinner mx-auto mb-4 border-leaf-green border-t-transparent"></div>
+                <p class="text-gray-600">Loading items...</p>
+            </div>
+            <div id="noListingsFound" class="col-span-full text-center py-12 hidden">
+                <div class="text-6xl mb-4">🌱</div>
+                <h3 class="text-xl font-semibold text-gray-600 mb-2">No items listed yet.</h3>
+                <p class="text-gray-500">Be the first to list an item!</p>
+            </div>
+
+            <div id="listingsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Item cards will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- List Item Modal -->
+    <div id="listItemModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal('listItemModal')">&times;</button>
+            <h2 class="text-2xl font-bold text-forest-green mb-4">List Your Item for Rent</h2>
+            <p class="text-gray-600 mb-6">Provide details about the item you want to rent out.</p>
+            <form id="listItemForm" class="space-y-6">
+                <div class="form-group">
+                    <label for="itemName">Item Name</label>
+                    <input type="text" id="itemName" name="itemName" placeholder="e.g., Tractor, Sprayer" required>
+                    <p class="form-error" id="itemNameError"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="4" placeholder="Describe your item, its condition, and features." required></textarea>
+                    <p class="form-error" id="descriptionError"></p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="form-group">
+                        <label for="pricePerDay">Price Per Day (₹)</label>
+                        <input type="number" id="pricePerDay" name="pricePerDay" step="0.01" placeholder="e.g., 500" required>
+                        <p class="form-error" id="pricePerDayError"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location" placeholder="e.g., Pune, Maharashtra" required>
+                        <p class="form-error" id="locationError"></p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="form-group">
+                        <label for="availabilityStartDate">Available From</label>
+                        <input type="date" id="availabilityStartDate" name="availabilityStartDate" required>
+                        <p class="form-error" id="availabilityStartDateError"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="availabilityEndDate">Available Until</label>
+                        <input type="date" id="availabilityEndDate" name="availabilityEndDate" required>
+                        <p class="form-error" id="availabilityEndDateError"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="itemImage">Item Image</label>
+                    <input type="file" id="itemImage" name="itemImage" accept="image/*" required>
+                    <p class="form-error" id="itemImageError"></p>
+                    <img id="imagePreview" class="mt-2 max-h-48 object-cover rounded-lg" style="display:none;">
+                </div>
+
+                <button id="submit" class="bg-forest-green text-white px-8 py-3 text-lg hover:brightness-110 shadow-md rounded-lg transition">
+                     List an Item
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Rent Item Modal -->
+    <div id="rentItemModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal('rentItemModal')">&times;</button>
+            <h2 class="text-2xl font-bold text-forest-green mb-4" id="rentModalItemName">Rent Item: [Item Name]</h2>
+            <p class="text-gray-600 mb-6">Fill in your details to send a rental request.</p>
+            <form id="rentItemForm" class="space-y-6">
+                <input type="hidden" id="rentModalListingId">
+                <input type="hidden" id="rentModalLenderId">
+                <input type="hidden" id="rentModalPricePerDay">
+
+                <div class="form-group">
+                    <label for="renterName">Your Name</label>
+                    <input type="text" id="renterName" name="renterName" placeholder="Your Full Name" required>
+                    <p class="form-error" id="renterNameError"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="renterContact">Your Contact (Phone/Email)</label>
+                    <input type="text" id="renterContact" name="renterContact" placeholder="e.g., 9876543210 or email@example.com" required>
+                    <p class="form-error" id="renterContactError"></p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="form-group">
+                        <label for="rentalStartDate">Rental Start Date</label>
+                        <input type="date" id="rentalStartDate" name="rentalStartDate" required>
+                        <p class="form-error" id="rentalStartDateError"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="rentalEndDate">Rental End Date</label>
+                        <input type="date" id="rentalEndDate" name="rentalEndDate" required>
+                        <p class="form-error" id="rentalEndDateError"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="deliveryPreference">Delivery Preference</label>
+                    <select id="deliveryPreference" name="deliveryPreference" required>
+                        <option value="">Select an option</option>
+                        <option value="pickup">Self-Pickup</option>
+                        <option value="delivery">Delivery (may incur extra charges)</option>
+                    </select>
+                    <p class="form-error" id="deliveryPreferenceError"></p>
+                </div>
+
+                <div class="text-lg font-bold text-right text-forest-green">
+                    Total Price: <span id="calculatedTotalPrice">₹0.00</span>
+                </div>
+
+                <button id="listItemBtn" class="bg-forest-green text-white px-8 py-3 text-lg hover:brightness-110 shadow-md rounded-lg transition">
+                     List an Item
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Message Container -->
+    <div id="toastContainer" class="fixed bottom-4 right-4 space-y-2 z-[1001]"></div>
+
+    <script src="js/rent.js"></script>
+</body>
+</html>

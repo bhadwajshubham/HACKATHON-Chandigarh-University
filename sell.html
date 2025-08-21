@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Your Crop - Kisan Mitra</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header and Navigation -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">🌱 Kisan Mitra</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rent.html">Rent</a></li>
+                <li><a href="diagnose.html">Diagnose</a></li>
+                <li><a href="sell.html" class="active">Sell</a></li>
+                <li><a href="recommend.html">Recommend</a></li>
+                <li><a href="#">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page-main">
+        <div class="container grid-container">
+            <!-- Left Card: Form -->
+            <div class="card">
+                <h2>List Your Crop</h2>
+                <form id="sell-crop-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="crop-type">Crop Type *</label>
+                            <input type="text" id="crop-type" placeholder="e.g., Wheat" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="variety">Variety</label>
+                            <input type="text" id="variety" placeholder="e.g., Basmati, BT Cotton">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="quantity">Quantity (Quintals) *</label>
+                            <input type="number" id="quantity" placeholder="Enter quantity" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="quality-grade">Quality Grade</label>
+                            <select id="quality-grade">
+                                <option>Select Grade</option>
+                                <option>Grade A</option>
+                                <option>Grade B</option>
+                                <option>Grade C</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                         <div class="form-group">
+                            <label for="expected-price">Expected Price (₹/Quintal)</label>
+                            <input type="number" id="expected-price" placeholder="Enter your price">
+                        </div>
+                        <div class="form-group">
+                            <label for="harvest-date">Harvest Date</label>
+                            <input type="date" id="harvest-date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Crop Photos</label>
+                        <div class="sell-upload-area">
+                            <p>Drag and drop files here or click to browse</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="additional-info">Additional Information</label>
+                        <textarea id="additional-info" rows="4" placeholder="Add any additional details about your crop..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary full-width">+ List My Crop</button>
+                </form>
+            </div>
+            <!-- Right Side: Market Prices & Tips -->
+            <aside>
+                <div class="card">
+                    <h3>Today's Market Prices</h3>
+                    <div class="market-price-item">
+                        <div>
+                            <h4>Wheat (per quintal)</h4>
+                            <p>Chandigarh average</p>
+                        </div>
+                        <div class="price">
+                            <strong>₹2,150</strong>
+                            <span class="price-change positive">+₹50 (2.4%)</span>
+                        </div>
+                    </div>
+                    <div class="market-price-item">
+                        <div>
+                            <h4>Rice (per quintal)</h4>
+                            <p>Chandigarh average</p>
+                        </div>
+                        <div class="price">
+                            <strong>₹2,890</strong>
+                            <span class="price-change negative">-₹30 (1.0%)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Tips for Better Sales</h3>
+                    <ul class="tips-list">
+                        <li>✓ Upload high-quality photos of your crops</li>
+                        <li>✓ Set competitive prices based on market rates</li>
+                        <li>✓ Mention organic or quality certifications</li>
+                        <li>✓ Respond quickly to buyer inquiries</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+</html>

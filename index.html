@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisan Mitra - Empowering Indian Farmers</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo"><i class="fa-solid fa-leaf"></i> Kisan Mitra</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="rent.html">Rent</a></li>
+                    <li><a href="diagnose.html">Diagnose</a></li>
+                    <li><a href="sell.html">Sell</a></li>
+                    <li><a href="recommend.html">Recommend</a></li>
+                    <li><a href="community.html">Community</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" class="theme-toggle-btn" title="Toggle theme">
+                <i class="fa-solid fa-sun icon-sun"></i>
+                <i class="fa-solid fa-moon icon-moon"></i>
+            </button>
+            <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </header>
+
+    <main class="page-main">
+        <section class="hero">
+            <video autoplay muted loop id="hero-video">
+                 <source src="path/to/your/video.mp4" type="video/mp4">
+                 Your browser does not support the video tag.
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1>Smart Farming, Simplified.</h1>
+                <p>Your trusted partner for renting equipment, diagnosing crop diseases, selling produce at better prices, and getting expert advice.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">Get Started</a>
+                    <a href="#mandi-prices" class="btn btn-secondary">Check Mandi Prices</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="container reveal">
+            <div class="section-title">
+                <h2>What would you like to do today?</h2>
+                <p class="subtitle">Choose from our complete suite of tools designed for the modern Indian farmer.</p>
+            </div>
+            <div class="services-grid">
+                <a href="rent.html" class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-tractor"></i></div>
+                    <h3>Rent Equipment</h3>
+                    <p>Access tractors, tillers, and more from local owners.</p>
+                </a>
+                <a href="diagnose.html" class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-seedling"></i></div>
+                    <h3>Diagnose Diseases</h3>
+                    <p>AI-powered crop disease detection from a single photo.</p>
+                </a>
+                <a href="sell.html" class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-sack-dollar"></i></div>
+                    <h3>Sell Your Crops</h3>
+                    <p>Connect directly with buyers and skip the middlemen.</p>
+                </a>
+                <a href="recommend.html" class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                    <h3>Get Recommendations</h3>
+                    <p>Smart crop and fertilizer suggestions for your soil.</p>
+                </a>
+                <a href="community.html" class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-users"></i></div>
+                    <h3>Join Community</h3>
+                    <p>Ask questions and share knowledge with fellow farmers.</p>
+                </a>
+                 <a href="#weather" class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-cloud-sun-rain"></i></div>
+                    <h3>Weather Forecast</h3>
+                    <p>Check local weather updates to plan your activities.</p>
+                </a>
+            </div>
+        </section>
+
+        <section id="mandi-prices" class="container reveal">
+            <div class="section-title">
+                <h2>Live Mandi Prices</h2>
+                <p class="subtitle">Today's market rates from your nearest Agricultural Produce Market Committee (APMC).</p>
+            </div>
+            <div class="card">
+                <h3 style="text-align: center; margin-bottom: 1.5rem;">APMC Pune (21 August 2025)</h3>
+                <div class="market-price-item">
+                    <div>Onion (प्याज)</div>
+                    <div class="price">₹1,850 / Quintal <span class="price-change positive"><i class="fa-solid fa-arrow-up"></i> ₹50</span></div>
+                </div>
+                <div class="market-price-item">
+                    <div>Tomato (टमाटर)</div>
+                    <div class="price">₹2,200 / Quintal <span class="price-change negative"><i class="fa-solid fa-arrow-down"></i> ₹120</span></div>
+                </div>
+                 <div class="market-price-item">
+                    <div>Potato (आलू)</div>
+                    <div class="price">₹1,500 / Quintal <span class="price-change positive"><i class="fa-solid fa-arrow-up"></i> ₹25</span></div>
+                </div>
+                <div class="market-price-item">
+                    <div>Wheat (गेहूँ)</div>
+                    <div class="price">₹2,375 / Quintal <span class="price-change positive"><i class="fa-solid fa-arrow-up"></i> ₹15</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="weather" class="container reveal">
+             <div class="section-title">
+                <h2>Weather Forecast</h2>
+                <p class="subtitle">Plan your farming activities with accurate weather predictions for Pune, Maharashtra.</p>
+            </div>
+             <div class="card" style="text-align: center;">
+                <h3>Today: <span style="color: var(--accent-teal);">Partly Cloudy</span></h3>
+                <p style="font-size: 3rem; font-weight: bold; margin: 1rem 0;">28°C</p>
+                <p>Humidity: 75% | Wind: 12 km/h</p>
+             </div>
+        </section>
+
+        <section id="testimonial" class="container reveal">
+            <div class="section-title">
+                <h2>What Farmers Say About Us</h2>
+            </div>
+            <div class="card" style="text-align: center; padding: 3rem;">
+                <blockquote>
+                    <p class="subtitle" style="font-size: 1.2rem; line-height: 1.8;">"Using Kisan Mitra to check mandi prices before selling my tomatoes saved me from losses. The disease diagnosis tool is also like having an expert in my pocket. This is a revolutionary app for us."</p>
+                </blockquote>
+                <cite style="display: block; margin-top: 1.5rem; font-weight: 600; font-style: normal;">- Ramesh Patil, Farmer from Satara</cite>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3 class="logo"><i class="fa-solid fa-leaf"></i> Kisan Mitra</h3>
+                    <p>Empowering Indian farmers with modern technology to increase productivity and profitability.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="#mandi-prices">Mandi Prices</a></li>
+                        <li><a href="#weather">Weather</a></li>
+                        <li><a href="community.html">Community Forum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fa-solid fa-envelope"></i> support@kisanmitra.com</p>
+                    <p><i class="fa-solid fa-location-dot"></i> Pune, Maharashtra, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kisan Mitra. All rights reserved.</p>
+                <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
